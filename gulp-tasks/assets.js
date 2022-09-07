@@ -4,13 +4,13 @@ import { paths } from "../gulpfile.babel";
 import gulp from "gulp";
 import debug from "gulp-debug";
 
-gulp.task("fonts", () => {
+gulp.task("assets", () => {
   return gulp
-    .src(paths.fonts.src)
-    .pipe(gulp.dest(paths.fonts.dist))
+    .src(paths.assets.src)
+    .pipe(gulp.dest(paths.assets.dist))
     .pipe(
       debug({
-        title: "Fonts"
+        title: "Assets"
       })
     );
 });

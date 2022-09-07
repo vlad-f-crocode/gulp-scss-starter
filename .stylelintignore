@@ -1,1 +1,4 @@
-/src/styles/**/*.scss
+README.md
+_functions.scss
+_mixins.scss
+_reboot.scss

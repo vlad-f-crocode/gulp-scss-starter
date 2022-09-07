@@ -1,0 +1,43 @@
+/* stylelint-disable function-disallowed-list, color-no-hex */
+
+:root {
+  //--palette-primary-main: #d39b75;
+  //--palette-primary-light: #dab7a3;
+  //--palette-primary-dark: #d39b75;
+  //--palette-primary-text: #222;
+  //--palette-secondary-main: #21574a;
+  //--palette-secondary-light: #628272;
+  //--palette-secondary-dark: #d39b75;
+  //--palette-secondary-text: #fff;
+  --palette-text-primary: #222222;
+  //--palette-text-secondary: #a6a6a6;
+  //--palette-text-disabled: #a6a6a6;
+  //--palette-background-paper: #f9f9f9;
+  --palette-background-default: #ffffff;
+  //--palette-error-main: #f14336;
+  //--palette-success-main: #5ab654;
+  //--palette-divider: #e5e5e5;
+
+  //--border-radius: 5px;
+
+  //--shadows-1: inset 0 -1px 0 #dadada;
+  //--shadows-2: 0 0 1px rgba(0, 0, 0, 0.25), 0 1px 1px rgba(0, 0, 0, 0.05);
+
+  --typography-rootFontSize: 16px;
+  --typography-htmlLineHeight: 1.5;
+  --typography-fontFamily: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial,
+    "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol", "Noto Color Emoji";
+  --typography-fontFamily-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  //--typography-fontFamily-headings: system-ui, -apple-system, "Segoe UI", Roboto,
+  //  "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji",
+  //  "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  //--typography-fontWeightLight: 300;
+  //--typography-fontWeightMedium: 500;
+  //--typography-fontWeightBold: 700;
+  //--typography-fontWeightBolder: 900;
+
+  //--spacing-container: 24px;
+}
+
+/* stylelint-enable function-disallowed-list, color-no-hex */

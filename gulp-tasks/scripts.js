@@ -11,21 +11,29 @@ import debug from "gulp-debug";
 import yargs from "yargs";
 
 const webpackConfig = require("../webpack.config.js"),
-    argv = yargs.argv,
-    production = !!argv.production;
+  argv = yargs.argv,
+  production = !!argv.production;
 
 webpackConfig.mode = production ? "production" : "development";
 webpackConfig.devtool = production ? false : "source-map";
 
 gulp.task("scripts", () => {
-    return gulp.src(paths.scripts.src)
-        .pipe(webpackStream(webpackConfig), webpack)
-        .pipe(gulpif(production, rename({
-            suffix: ".min"
-        })))
-        .pipe(gulp.dest(paths.scripts.dist))
-        .pipe(debug({
-            "title": "JS files"
-        }))
-        .pipe(browsersync.stream());
+  return gulp
+    .src(paths.scripts.src)
+    .pipe(webpackStream(webpackConfig), webpack)
+    .pipe(
+      gulpif(
+        production,
+        rename({
+          suffix: ".min"
+        })
+      )
+    )
+    .pipe(gulp.dest(paths.scripts.dist))
+    .pipe(
+      debug({
+        title: "JS files"
+      })
+    )
+    .pipe(browsersync.stream());
 });

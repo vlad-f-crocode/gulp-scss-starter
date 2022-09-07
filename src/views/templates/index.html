@@ -1,0 +1,10 @@
+@@include("../layout/html-top.html", { title: "Home Page" })
+
+<main>
+  @@include("../sections/section.html", {
+    data: 'content "section" from template'
+  })
+  @@include("../sections/section2.html")
+</main>
+
+@@include("../layout/html-bottom.html")

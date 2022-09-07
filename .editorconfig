@@ -1,0 +1,19 @@
+# EditorConfig is awesome: https://editorconfig.org/
+
+# top-most EditorConfig file
+root = true
+
+[*.js]
+ij_javascript_use_double_quotes = true
+ij_any_space_before_method_parentheses = false
+ij_any_space_before_else_left_brace = true
+
+# Windows-style newlines with a newline ending every file
+[*]
+charset = utf-8
+end_of_line = lf
+indent_size = 2
+indent_style = space
+insert_final_newline = true
+trim_trailing_whitespace = true
+max_line_length = 100

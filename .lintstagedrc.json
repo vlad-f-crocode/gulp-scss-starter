@@ -1,0 +1,5 @@
+{
+  "src/views/**/*.html": ["prettier --write --parser html"],
+  "src/styles/**/*.scss": ["prettier --write", "stylelint --fix"],
+  "src/js/**/*.js": ["prettier --write", "eslint --fix"]
+}

@@ -1,0 +1,367 @@
+// Normalization of HTML elements, manually forked from Normalize.css to remove
+// styles targeting irrelevant browsers while applying new styles.
+//
+// Normalize is licensed MIT. https://github.com/necolas/normalize.css
+
+// Document
+//
+// Change from `box-sizing: content-box` so that `width` is not affected by `padding` or `border`.
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+// Root
+
+:root {
+  font-size: var(--typography-rootFontSize);
+
+  @media (prefers-reduced-motion: no-preference) {
+    scroll-behavior: smooth;
+  }
+}
+
+// Body
+//
+// 1. Remove the margin in all browsers.
+// 2. As a best practice, apply a default `background-color`.
+// 3. Prevent adjustments of font size after orientation changes in iOS.
+// 4. Change the default tap highlight to be completely transparent in iOS.
+
+body {
+  font-family: var(--typography-fontFamily);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0; // 1
+  color: var(--palette-text-primary);
+  background-color: var(--palette-background-default); // 2
+  -webkit-text-size-adjust: 100%; // 3
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0); // 4
+}
+
+// Content grouping
+//
+// 1. Reset Firefox's gray color
+
+hr {
+  color: inherit; // 1
+}
+
+// Abbreviations
+//
+// 1. Add the correct text decoration in Chrome, Edge, Opera, and Safari.
+// 2. Add explicit cursor to indicate changed behavior.
+// 3. Prevent the text-decoration to be skipped.
+
+abbr[title] {
+  cursor: help; // 2
+  text-decoration: underline dotted; // 1
+  text-decoration-skip-ink: none; // 3
+}
+
+// Address
+
+address {
+  font-style: normal;
+  line-height: inherit;
+  margin-bottom: 1rem;
+}
+
+// Lists
+//
+// 1. Undo browser default
+
+dd {
+  margin-left: 0; // 1
+}
+
+// Strong
+//
+// Add the correct font weight in Chrome, Edge, and Safari
+
+b,
+strong {
+  font-weight: bolder;
+}
+
+// Small
+//
+// Add the correct font size in all browsers
+
+small {
+  font-size: 0.875em;
+}
+
+// Sub and Sup
+//
+// Prevent `sub` and `sup` elements from affecting the line height in
+// all browsers.
+
+sub,
+sup {
+  font-size: 0.75em;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+sup {
+  top: -0.5em;
+}
+
+// Links
+
+// And undo these styles for placeholder links/named anchors (without href).
+// It would be more straightforward to just use a[href] in previous block, but that
+// causes specificity issues in many other styles that are too complex to fix.
+
+a:not([href]):not([class]) {
+  &,
+  &:hover {
+    text-decoration: none;
+    color: inherit;
+  }
+}
+
+// Code
+
+pre,
+code,
+kbd,
+samp {
+  font-family: var(--typography-fontFamily-monospace);
+  font-size: 1em;
+}
+
+// 1. Remove browser default top margin
+// 2. Reset browser default of `1em` to use `rem`s
+// 3. Don't allow content to break outside
+
+code {
+  font-size: 0.875em;
+
+  // Streamline the style when inside anchors to avoid broken underline and more
+
+  a > & {
+    color: inherit;
+  }
+}
+
+pre code {
+  font-size: inherit;
+  color: inherit;
+}
+
+kbd {
+  font-size: 0.875em;
+
+  kbd {
+    font-size: 1em;
+    padding: 0;
+  }
+}
+
+// Images and content
+
+img,
+svg {
+  vertical-align: middle;
+}
+
+// Tables
+//
+// Prevent double borders
+
+table {
+  caption-side: bottom;
+  border-collapse: collapse;
+}
+
+// 1. Removes font-weight bold by inheriting
+// 2. Matches default `<td>` alignment by inheriting `text-align`.
+// 3. Fix alignment for Safari
+
+th {
+  text-align: inherit; // 2
+  text-align: -webkit-match-parent; // 3
+}
+
+thead,
+tbody,
+tfoot,
+tr,
+td,
+th {
+  border-width: 0;
+  border-style: solid;
+  border-color: inherit;
+}
+
+// Forms
+//
+// 1. Allow labels to use `margin` for spacing.
+
+label {
+  display: inline-block; // 1
+}
+
+// Remove the default `border-radius` that macOS Chrome adds.
+
+button {
+  border-radius: 0;
+}
+
+// Explicitly remove focus outline in Chromium when it shouldn't be
+// visible (e.g. as result of mouse click or touch tap). It already
+// should be doing this automatically, but seems to currently be
+// confused and applies its very visible two-tone outline anyway.
+
+button:focus:not(:focus-visible) {
+  outline: 0;
+}
+
+// 1. Remove the margin in Firefox and Safari
+
+input,
+button,
+select,
+optgroup,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  margin: 0; // 1
+}
+
+// Remove the inheritance of text transform in Firefox
+
+button,
+select {
+  text-transform: none;
+}
+
+// Set the cursor for non-`<button>` buttons
+
+[role="button"] {
+  cursor: pointer;
+}
+
+// Remove the dropdown arrow only from text type inputs built with datalists in Chrome.
+// See https://stackoverflow.com/a/54997118
+
+[list]:not([type="date"]):not([type="datetime-local"]):not([type="month"]):not([type="week"]):not([type="time"])::-webkit-calendar-picker-indicator {
+  display: none !important;
+}
+
+// 1. Prevent a WebKit bug where (2) destroys native `audio` and `video`
+//    controls in Android 4.
+// 2. Correct the inability to style clickable types in iOS and Safari.
+// 3. Opinionated: add "hand" cursor to non-disabled button elements.
+
+button,
+[type="button"], // 1
+[type="reset"],
+[type="submit"] {
+  -webkit-appearance: button; // 2
+}
+
+// Remove inner border and padding from Firefox, but don't restore the outline like Normalize.
+
+::-moz-focus-inner {
+  padding: 0;
+  border-style: none;
+}
+
+// 1. Browsers set a default `min-width: min-content;` on fieldsets,
+//    unlike e.g. `<div>`s, which have `min-width: 0;` by default.
+//    So we reset that to ensure fieldsets behave more like a standard block element.
+//    See https://html.spec.whatwg.org/multipage/#the-fieldset-and-legend-elements
+// 2. Reset the default outline behavior of fieldsets so they don't affect page layout.
+
+fieldset {
+  min-width: 0; // 1
+  margin: 0; // 2
+  padding: 0; // 2
+  border: 0; // 2
+}
+
+legend {
+  line-height: inherit;
+  width: 100%;
+  padding: 0;
+}
+
+// Fix height of inputs with a type of datetime-local, date, month, week, or time
+
+::-webkit-datetime-edit-fields-wrapper,
+::-webkit-datetime-edit-text,
+::-webkit-datetime-edit-minute,
+::-webkit-datetime-edit-hour-field,
+::-webkit-datetime-edit-day-field,
+::-webkit-datetime-edit-month-field,
+::-webkit-datetime-edit-year-field {
+  padding: 0;
+}
+
+::-webkit-inner-spin-button {
+  height: auto;
+}
+
+// 1. Correct the outline style in Safari.
+// 2. This overrides the extra rounded corners on search inputs in iOS so that our
+//    `.form-control` class can properly style them. Note that this cannot simply
+//    be added to `.form-control` as it's not specific enough.
+
+[type="search"] {
+  outline-offset: -2px; // 1
+  -webkit-appearance: textfield; // 2
+}
+
+// Remove the inner padding in Chrome and Safari on macOS.
+
+::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+// Remove padding around color pickers in webkit browsers
+
+::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+// 1. Inherit font family and line height for file input buttons
+// 2. Correct the inability to style clickable types in iOS and Safari.
+
+::file-selector-button {
+  font: inherit; // 1
+  -webkit-appearance: button; // 2
+}
+
+// Correct element displays
+
+output {
+  display: inline-block;
+}
+
+// Summary
+//
+// 1. Add the correct display in all browsers
+
+summary {
+  display: list-item; // 1
+}
+
+// Progress
+//
+// Add the correct vertical alignment in Chrome, Firefox, and Opera.
+
+progress {
+  vertical-align: baseline;
+}
