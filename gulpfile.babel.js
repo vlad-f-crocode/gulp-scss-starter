@@ -30,13 +30,13 @@ const requireDir = require("require-dir"),
       watch: "./src/assets/sprites/*.svg"
     },
     fonts: {
-      src: "./src/assets/fonts/*.{woff2}",
+      src: "./src/assets/fonts/*.woff2",
       dist: "./dist/fonts/",
-      watch: "./src/assets/fonts/*.{woff2}"
+      watch: "./src/assets/fonts/*.woff2"
     },
     favicons: {
       src: "./src/assets/favicons/*.{jpg,jpeg,png,gif}",
-      dist: "./dist/assets/favicons/"
+      dist: "./dist/favicons/"
     },
     gzip: {
       src: "./src/.htaccess",
